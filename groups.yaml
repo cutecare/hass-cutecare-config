@@ -1,0 +1,29 @@
+default_view:
+  view: yes
+  icon: mdi:home 
+  entities:
+    - group.hall
+    - group.kitchen
+    - group.cabinet
+    - group.bedroom
+    - group.hallway
+
+hall:
+  name: Зал 
+  entities:
+
+kitchen:
+  name: Кухня
+  entities:
+
+cabinet:
+  name: Кабинет
+  entities:
+
+bedroom:
+  name: Спальня
+  entities:
+
+hallway:
+  name: Прихожая
+  entities:
