@@ -1,0 +1,69 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 55.7522
+  longitude: 37.6156
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 143
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Moscow
+  # Customization file
+  customize: !include customize.yaml
+
+# Enables the frontend
+frontend:
+
+panel_custom:
+  - name: ble
+    sidebar_title: BLE
+    sidebar_icon: mdi:hand-pointing-right
+    url_path: ble
+
+logger:
+  default: info
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+
+light:
+
+switch:
+
+binary_sensor:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
