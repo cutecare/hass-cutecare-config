@@ -14,7 +14,11 @@
                 max-width: 400px;
             }
             .entities th {
+                padding-right: 32px;
                 text-align: left;
+            }
+			.entities td {
+                padding-right: 32px;
             }
             .entities tr {
                 vertical-align: top;
@@ -38,19 +42,19 @@
             <app-header slot="header" fixed>
               <app-toolbar>
                 <ha-menu-button narrow='[[narrow]]' show-menu='[[showMenu]]'></ha-menu-button>
-                <div main-title>BLEs</div>
+                <div main-title>List of available BLEs</div>
               </app-toolbar>
             </app-header>
       
             <div class='content'>
               <table class='entities'>
                 <tr>
-                  <th>Address</th>
-                  <th>BLE Name</th>
-                  <th>Entity Name</th>
+                  <th>BLE Address</th>
+                  <th>BLE Title</th>
+                  <th>Entity name in HASS</th>
                 </tr>
                 <tr hidden$='[[!computeShowEntitiesPlaceholder(_entities)]]'>
-                  <td colspan="3">No entities</td>
+                  <td colspan="3">Please wait, scanning for BLEs...</td>
                 </tr>
                 <template is='dom-repeat' items='[[_entities]]' as='entity'>
                   <tr>
@@ -111,21 +115,6 @@
 		this._entities = [];
 		this._entities = devices;
 	  });
-    },
-    computeEntities(hass) {
-        return Object.keys(hass.states)
-            .map(function (key) { 
-                return hass.states[key];
-            })
-            .sort(function (entityA, entityB) {
-                if (entityA.name < entityB.name) {
-                    return -1;
-                }
-                if (entityA.name > entityB.name) {
-                    return 1;
-                }
-                return 0;
-            });
     },
     computeShowEntitiesPlaceholder(_entities) {
         return _entities.length === 0;
