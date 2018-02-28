@@ -62,6 +62,8 @@ map:
 sun:
 
 sensor:
+  - platform: cutecare
+
   - platform: command_line
     name: CPU Temp
     command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
