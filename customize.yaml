@@ -1,0 +1,11 @@
+sensor.cpu_temp:
+  friendly_name: CPU
+
+sensor.cpu_used:
+  friendly_name: Загрузка
+
+sensor.disk_used_:
+  friendly_name: Диск
+
+sensor.ram_available:
+  friendly_name: Память
