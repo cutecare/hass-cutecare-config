@@ -62,6 +62,18 @@ map:
 sun:
 
 sensor:
+  - platform: command_line
+    name: CPU Temp
+    command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "ºC"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+  - platform: systemmonitor
+    resources:
+    - type: disk_use_percent
+      arg: /
+    - type: memory_free
+    - type: processor_use
 
 light:
 
