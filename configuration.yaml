@@ -21,6 +21,12 @@ panel_custom:
     sidebar_title: BLE
     sidebar_icon: mdi:hand-pointing-right
     url_path: ble
+  - name: editor
+    sidebar_title: Editor
+    sidebar_icon: mdi:tune
+    url_path: editor
+    config:
+      port: 8080
 
 logger:
   default: info
