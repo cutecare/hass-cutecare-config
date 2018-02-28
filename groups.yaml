@@ -7,6 +7,7 @@ default_view:
     - group.cabinet
     - group.bedroom
     - group.hallway
+    - group.device
 
 hall:
   name: Зал 
@@ -27,3 +28,11 @@ bedroom:
 hallway:
   name: Прихожая
   entities:
+
+device:
+  name: Контроллер
+  entities:
+    - sensor.cpu_temp
+    - sensor.cpu_used
+    - sensor.disk_used_
+    - sensor.ram_available
