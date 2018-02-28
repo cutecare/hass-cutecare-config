@@ -1,0 +1,63 @@
+<dom-module id='ha-panel-editor'>
+    <template>
+        <style include="ha-style">
+            :host {
+                -ms-user-select: initial;
+                -webkit-user-select: initial;
+                -moz-user-select: initial;
+            }
+			iframe {
+				border: 0;
+				width: 100%;
+				height: 100%;
+			}
+        </style>
+        
+        <app-header-layout has-scrolling-region>
+            <app-header slot="header" fixed>
+              <app-toolbar>
+                <ha-menu-button narrow='[[narrow]]' show-menu='[[showMenu]]'></ha-menu-button>
+                <div main-title>Configuration editor</div>
+              </app-toolbar>
+            </app-header>
+      
+             <iframe src='[[url]]' sandbox="allow-forms allow-popups allow-pointer-lock allow-same-origin allow-scripts"
+				allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"
+			 ></iframe>
+        </app-header-layout>
+    </template>
+  </dom-module>
+  
+  <script>
+  Polymer({
+    is: 'ha-panel-editor',
+    properties: {
+      // Home Assistant object
+      hass: {
+        type: Object,
+      },
+      // If should render in narrow mode
+      narrow: {
+        type: Boolean,
+        value: false,
+      },
+      // If sidebar is currently shown
+      showMenu: {
+        type: Boolean,
+        value: false,
+      },
+      // Home Assistant panel info
+      // panel.config contains config passed to register_panel serverside
+      panel: {
+        type: Object,
+      },
+	  url: {
+        type: Object,
+        computed: '_computeUrl()',
+      },
+    },
+	_computeUrl() {
+		return document.location.toString().replace('/editor', ':' + this.panel.config.port);
+	}
+  });
+  </script>
