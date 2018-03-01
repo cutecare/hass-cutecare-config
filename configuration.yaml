@@ -62,10 +62,6 @@ map:
 sun:
 
 sensor:
-  - platform: cutecare
-    name: Test
-    mac: 00:00
-
   - platform: command_line
     name: CPU Temp
     command: "/bin/cat /sys/class/thermal/thermal_zone0/temp"
@@ -84,6 +80,9 @@ light:
 switch:
 
 binary_sensor:
+  - platform: cutecare
+    name: Test
+    mac: 00:00
 
 group: !include groups.yaml
 automation: !include automations.yaml
