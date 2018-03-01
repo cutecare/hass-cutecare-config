@@ -63,6 +63,8 @@ sun:
 
 sensor:
   - platform: cutecare
+    name: Test
+    mac: 00:00
 
   - platform: command_line
     name: CPU Temp
