@@ -57,7 +57,7 @@
       },
     },
 	_computeUrl() {
-		return document.location.toString().replace('/editor', ':' + this.panel.config.port);
+		return document.location.toString().replace(/(:[\d]+)?\/editor/,':' + this.panel.config.port);
 	}
   });
   </script>
