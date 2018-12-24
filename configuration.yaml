@@ -29,7 +29,7 @@ panel_custom:
       port: 8080
 
 logger:
-  default: info
+  default: error
 
 # Enables configuration UI
 config:
@@ -51,6 +51,34 @@ conversation:
 
 # Enables support for tracking state changes over time
 history:
+    exclude:
+      domains:
+        - updater
+        - camera
+        - script
+        - sun
+        - automation
+        - zone
+
+# Recorder settings
+recorder:
+  purge_interval: 1
+  purge_keep_days: 7
+
+  exclude:
+    domains:
+      - updater
+      - camera
+      - group
+      - script
+      - sun
+      - automation
+      - zone
+  include:
+    domains:
+      - binary_sensor
+      - sensor
+      - switch
 
 # View all events in a logbook
 logbook:
