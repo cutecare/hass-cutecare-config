@@ -12,6 +12,8 @@ homeassistant:
   time_zone: Europe/Moscow
   # Customization file
   customize: !include customize.yaml
+#  auth_providers:
+#    - type: trusted_networks
 
 # Enables the frontend
 frontend:
@@ -39,6 +41,10 @@ http:
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
+#  trusted_networks:
+#    - 127.0.0.1
+#    - 10.8.0.0/24
+#    - 192.168.1.0/24
 
 # Checks for available updates
 updater:
